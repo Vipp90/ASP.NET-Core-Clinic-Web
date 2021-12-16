@@ -1,0 +1,92 @@
+﻿
+
+@model IEnumerable<Clinic_Web.Models.Models.Visit>
+
+@{
+    ViewData["Title"] = "Strona główna";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+
+<ul class="nav navbar-nav" style="text-align:center">
+    
+    <li><a asp-action="Create" asp-controller="Visits"><i class="fas fa-plus-circle"></i> Umów wizytę</a></li>
+    <li><a asp-action="Index_previous" asp-controller="Visits">Twoje zrealizowane wizyty</a></li>
+    
+
+</ul>
+
+
+<div class=" text-center">
+    <p>
+        Witaj w panelu pacjenta. Strona jest w ciągłej rozbudowie, nowe funkcjonalności będą dodawane.
+
+    </p>
+</div>
+
+
+<div class="form-group" style="text-align:left">
+
+
+</div>
+<p style="text-align:center ; color:blue; font-size:150%">
+    Twoje zaplanowane wizyty
+</p>
+<table class=" table" ; style="width:70%" align="center">
+    <thead>
+        <tr>
+            <th>
+                Data
+            </th>
+            <th>
+                Godzina
+            </th>
+            <th>
+                Lekarz
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.date)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.hour)
+                </td>
+
+
+                <td>
+                    @item.doctor.toString2()
+
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.VisitId"><i class="fas fa-edit"></i></a>
+                    |
+                    <a asp-action="Delete" asp-route-id="@item.VisitId" style="color:red"><i class="fas fa-trash"></i></a>
+                </td>
+            </tr>
+        }
+
+
+    </tbody>
+
+</table>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+       
+    </script>
+    }

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\Grzesiek\Desktop\przychodnia</_PublishTargetUrl>
+    <History>True|2021-12-16T17:03:22.7882475Z;True|2021-12-08T13:59:30.4715787+01:00;True|2021-12-10T04:55:53.7878780+01:00;True|2021-08-24T14:34:59.3057954+02:00;True|2021-08-20T12:05:50.5359109+02:00;</History>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DBContextConnection">
+      <Value>Server=Przychodnia.mssql.somee.com,1433%3bDatabase=Przychodnia%3bTrusted_Connection=True%3bIntegrated Security=false%3bUser ID=Rayearth%3bPassword=Tofik555%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

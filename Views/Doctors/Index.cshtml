@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Clinic_Web.Models.Doctor>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Lista lekarzy</h1>
+
+<p>
+    <a asp-action="Create">Utwórz</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Imię
+            </th>
+            <th>
+                Nazwisko
+            </th>
+            <th>
+               Specjalizacja
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Specialization)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.DoctorId">Edycja</a> |
+                 
+                <a asp-action="Delete" asp-route-id="@item.DoctorId">Usuń</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

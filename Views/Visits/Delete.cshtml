@@ -1,0 +1,43 @@
+﻿@model Clinic_Web.Models.Models.Visit
+
+@{
+    ViewData["Title"] = "Odwołaj";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3 style="text-align:center">Odwołaj wizytę</h3>
+
+<div style="text-align:center">
+  
+ <hr />
+    <dl style="text-align:center" class="row" >
+        <dt>
+
+            @Html.DisplayNameFor(model => model.patient)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.patient.Name)
+            @Html.DisplayFor(model => model.patient.Surname)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.doctor)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.doctor.Name)
+            @Html.DisplayFor(model => model.doctor.Surname)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.date)
+            @Html.DisplayFor(model => model.hour)
+        </dd>
+    </dl>
+    <h5>Czy jesteś pewny, że chcesz odwołać wizytę?</h5>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="VisitId" />
+        <input type="submit" value="Odwołaj" class="btn btn-danger" /> 
+        <a class="btn btn-primary" asp-action="Index">Cofnij</a>
+    </form>
+</div>

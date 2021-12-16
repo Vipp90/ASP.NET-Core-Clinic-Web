@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Przychodnia</title>
+    <link rel="stylesheet" asp-append-version="true" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" asp-append-version="true" href="~/css/site.css" />
+    
+
+
+    <script src="https://kit.fontawesome.com/d6c6fff4a1.js" crossorigin="anonymous"></script>
+    @* @RenderSection("stylesheets", required: true) *@
+</head>
+<body>
+    <header>
+        
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 ">
+
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Strona główna</a>
+            
+
+            <partial name="_LoginPartial.cshtml" />
+
+
+        </nav>
+        
+     
+        
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted"; style="text-align:right">
+        <div class="container">
+            &copy; 2021 - Przychodnia
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+
+</body>
+
+</html>
