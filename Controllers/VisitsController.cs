@@ -43,7 +43,7 @@ namespace Clinic_Web.Controllers
             todaytime = DateTime.UtcNow.TimeOfDay;
             todaytime.Add(onehour);
             pesel = user.Pesel;
-            var database_controller = _context.Visits.Where(c => c.patient.Pesel == user.Pesel && c.date.DayOfYear> today.DayOfYear).Include(v => v.doctor).Include(v => v.patient);
+            var database_controller = _context.Visits.Where(c => c.patient.Pesel == user.Pesel && c.date.DayOfYear> today.DayOfYear || c.date.Year> today.Year).Include(v => v.doctor).Include(v => v.patient);
             var list = _context.Visits.Where(c => c.patient.Pesel == user.Pesel && c.date.DayOfYear == today.DayOfYear && c.date.Hour > todaytime.Hours).Include(v => v.doctor).Include(v => v.patient);
             var list1 = _context.Visits.Where(c => c.patient.Pesel == user.Pesel && c.date.DayOfYear == today.DayOfYear && c.date.Hour == todaytime.Hours && c.date.Minute > todaytime.Minutes).Include(v => v.doctor).Include(v => v.patient);
             var sum = database_controller.Concat(list).Concat(list1);
@@ -90,7 +90,7 @@ namespace Clinic_Web.Controllers
             DateTime todaydata = DateTime.Today;
            
             var items = new List<DateTime>();
-            if (data.DayOfYear < todaydata.DayOfYear)
+            if (data.DayOfYear < todaydata.DayOfYear && data.Year == todaydata.Year)
             { return null; }
             Doctor doctor = new Doctor();
             doctor = _context.Doctors.Find(x); ;
